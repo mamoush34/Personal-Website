@@ -5,12 +5,12 @@ import { observable, action, computed } from "mobx";
 import { observer } from "mobx-react";
 import { Job } from "../models/Job";
 import { ApplicationRec } from "./application_rec";
-import AddJobPage from "./add_job_page";
 import { Server } from "../utilities/utilities";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { DynamicInteractiveMap, Comparators, Compare } from "dynamicinteractivemap";
+import TopBar from "./top_bar";
 
 library.add(faIdBadge);
 
@@ -21,7 +21,6 @@ export interface HomeViewProps {
 @observer
 export default class HomeView extends React.Component<HomeViewProps> {
     @observable private filterBox?: HTMLInputElement;
-    @observable private openCreation: boolean = false;
     @observable private jobsMap?: DynamicInteractiveMap<string, Job>;
     @observable private descending = true;
 
@@ -53,10 +52,10 @@ export default class HomeView extends React.Component<HomeViewProps> {
     @action
     addJob = async (newJob: Job) => this.jobsMap?.insert(newJob.id = await Server.Post("/jobs", newJob), newJob);
 
-    @action
-    close = () => {
-        this.openCreation = false;
-    }
+    // @action
+    // close = () => {
+    //     this.openCreation = false;
+    // }
 
     @computed
     private get sortingPanel() {
@@ -101,37 +100,31 @@ export default class HomeView extends React.Component<HomeViewProps> {
         if (jobsMap) {
             renderedJobs = <div className={"jobs-container"}>{jobsMap.render.map(job => (<ApplicationRec listedJob={job} ></ApplicationRec>))}</div>
         }
-        if (this.openCreation) {
-            return <AddJobPage close={this.close} addJob={this.addJob} />
-        } else {
-            const { background } = this.props;
-            return <div
-                className="container"
-                style={{ background }}
-            >
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-                    <input
-                        type="text"
-                        id="search_bar"
-                        placeholder="Search here!"
-                        onChange={e => this.jobsMap?.filterBy(e.target.value)}
-                        ref={(el) => {
-                            if (el) {
-                                this.filterBox = el;
-                                this.filterBox.focus();
-                            }
-                        }}
-                    />
-                    <a className="registration" id="register" title="Add Job!" onClick={() => {
-                        this.openCreation = true;
-                    }}>
-                        <FontAwesomeIcon icon={faIdBadge} size={"3x"} ></FontAwesomeIcon>
-                    </a>
-                </div>
-                {this.sortingPanel}
-                {renderedJobs}
+        
+        const { background } = this.props;
+        return <div
+            className="container"
+            style={{ background }}
+        >
+            <TopBar></TopBar>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
+                <input
+                    type="text"
+                    id="search_bar"
+                    placeholder="Search here!"
+                    onChange={e => this.jobsMap?.filterBy(e.target.value)}
+                    ref={(el) => {
+                        if (el) {
+                            this.filterBox = el;
+                            this.filterBox.focus();
+                        }
+                    }}
+                />
             </div>
-        }
+            {this.sortingPanel}
+            {renderedJobs}
+        </div>
+        
 
     }
 
