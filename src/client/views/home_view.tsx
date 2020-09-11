@@ -3,16 +3,9 @@ import * as React from "react";
 import "./home_view.scss";
 import { observable, action, computed } from "mobx";
 import { observer } from "mobx-react";
-import { Job } from "../models/Job";
-import { ApplicationRec } from "./application_rec";
-import { Server } from "../utilities/utilities";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { DynamicInteractiveMap, Comparators, Compare } from "dynamicinteractivemap";
 import TopBar from "./top_bar";
-
-library.add(faIdBadge);
+import AboutPage from "./about_page";
 
 export interface HomeViewProps {
     background: string;
@@ -20,111 +13,53 @@ export interface HomeViewProps {
 
 @observer
 export default class HomeView extends React.Component<HomeViewProps> {
-    @observable private filterBox?: HTMLInputElement;
-    @observable private jobsMap?: DynamicInteractiveMap<string, Job>;
-    @observable private descending = true;
+    @observable aboutPageOpen: boolean = false;
+    @observable projectPageOpen: boolean = false;
 
-    componentDidMount() {
-        Server.Post("/jobs").then(action(response => {
-            let initial = new Map<string, Job>();
-            if (Array.isArray(response) && response.length) {
-                response.forEach(({
-                    _id,
-                    company,
-                    jobTitle,
-                    appDate,
-                    status,
-                    datePosted,
-                    recruiterName,
-                    recruiterEmail,
-                    applicationWay,
-                    referralOptions
-                }) => {
-                    const job = new Job(company, jobTitle, appDate, status, datePosted, recruiterName, recruiterEmail, applicationWay, referralOptions);
-                    job.id = _id;
-                    initial.set(_id, job);
-                });
-            }
-            this.jobsMap = new DynamicInteractiveMap(initial, "unordered");
-        }));
+    @action
+    renderAboutPage = () => {
+        this.aboutPageOpen = true;
+        if (this.projectPageOpen) this.projectPageOpen = false;
     }
 
     @action
-    addJob = async (newJob: Job) => this.jobsMap?.insert(newJob.id = await Server.Post("/jobs", newJob), newJob);
-
-    // @action
-    // close = () => {
-    //     this.openCreation = false;
-    // }
-
-    @computed
-    private get sortingPanel() {
-        return <>
-            <div
-                className={"job-rect"}
-                style={{ marginBottom: 40 }}
-                onClick={action(() => {
-                    const { jobsMap } = this;
-                    if (!jobsMap) {
-                        return;
-                    }
-                    let ordering = jobsMap.currentOrdering;
-                    if (this.descending) {
-                        this.descending = false;
-                    } else {
-                        this.descending = true;
-                        ordering = this.jobsMap?.currentOrdering === "status" ? "company" : "status";
-                    }
-                    if (ordering !== "unordered") {
-                        jobsMap.invalidateOrderingFor(ordering);
-                    }
-                    let comparator: Compare.Map.ByValue<Job>;
-                    if (ordering === "unordered") {
-                        comparator = Comparators.unsorted;
-                    } else {
-                        comparator = Comparators.sorted(ordering, this.descending);
-                    }
-                    jobsMap.sortBy(comparator, ordering);
-                })}
-            >
-                <div>SORTED BY {this.jobsMap?.currentOrdering} ({this.descending ? "DESCENDING" : "ASCENDING"})</div>
-            </div>
-            <div>{this.jobsMap?.render.length} total applications</div>
-        </>
+    renderProjectPage = () => {
+        this.projectPageOpen = true;
+        if (this.aboutPageOpen) this.aboutPageOpen = false;
     }
+    @action
+    renderHomePage = () => {
+        if (this.aboutPageOpen) this.aboutPageOpen = false;
+        if (this.projectPageOpen) this.projectPageOpen = false;
+    }
+
+    fillPage = () => {
+        if (this.projectPageOpen) {
+            return <div className="project-page">
+                <div className="image_container"></div>
+                <div className="project_container"></div>
+            </div>;
+        } else if (this.aboutPageOpen){
+            return <AboutPage></AboutPage>;
+        } else {
+            return <div className="home-page">
+                <div className="title">Mohammad Amoush</div>
+                <div className="subtitle">I am a Student/Programmer/Economist</div>
+            </div>;
+        }
+    }
+    
 
     @computed
     private get renderPage() {
-        const { jobsMap } = this;
-        let renderedJobs = (null);
-        if (jobsMap) {
-            renderedJobs = <div className={"jobs-container"}>{jobsMap.render.map(job => (<ApplicationRec listedJob={job} ></ApplicationRec>))}</div>
-        }
-        
         const { background } = this.props;
         return <div
-            className="container"
+            className="def-container"
             style={{ background }}
         >
-            <TopBar></TopBar>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-                <input
-                    type="text"
-                    id="search_bar"
-                    placeholder="Search here!"
-                    onChange={e => this.jobsMap?.filterBy(e.target.value)}
-                    ref={(el) => {
-                        if (el) {
-                            this.filterBox = el;
-                            this.filterBox.focus();
-                        }
-                    }}
-                />
-            </div>
-            {this.sortingPanel}
-            {renderedJobs}
-        </div>
-        
+            <TopBar renderHome={this.renderHomePage} renderAbout={this.renderAboutPage} renderProjects={this.renderProjectPage}></TopBar>
+            {this.fillPage()}
+        </div>     
 
     }
 

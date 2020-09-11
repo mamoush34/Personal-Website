@@ -21,13 +21,13 @@ export default class TopBar extends React.Component<TopBarProps> {
         let props = this.props;
         return(
             <div className="top_container">
-                <a className="home" id="home" title="Home" onClick={props.renderHome}>
+                <a className="buttons" id="home" title="Home" onClick={props.renderHome}>
                         <FontAwesomeIcon icon={faHome} size={"2x"} ></FontAwesomeIcon>
                 </a>
-                <a className="About" id="about" title="About Me!" onClick={props.renderAbout}>
+                <a className="buttons" id="about" title="About Me!" onClick={props.renderAbout}>
                         <FontAwesomeIcon icon={faUser} size={"2x"} ></FontAwesomeIcon>
                 </a>
-                <a className="projects" id="projects" title="Projects" onClick={props.renderProjects}>
+                <a className="buttons" id="projects" title="Projects" onClick={props.renderProjects}>
                         <FontAwesomeIcon icon={faProjectDiagram} size={"2x"} ></FontAwesomeIcon>
                 </a>
             </div>
