@@ -6,6 +6,7 @@ import { observer } from "mobx-react";
 import { DynamicInteractiveMap, Comparators, Compare } from "dynamicinteractivemap";
 import TopBar from "./top_bar";
 import AboutPage from "./about_page";
+import ProjectPage from "./project_page";
 
 export interface HomeViewProps {
     background: string;
@@ -35,16 +36,16 @@ export default class HomeView extends React.Component<HomeViewProps> {
 
     fillPage = () => {
         if (this.projectPageOpen) {
-            return <div className="project-page">
-                <div className="image_container"></div>
-                <div className="project_container"></div>
-            </div>;
+            return <ProjectPage></ProjectPage>
         } else if (this.aboutPageOpen){
             return <AboutPage></AboutPage>;
         } else {
             return <div className="home-page">
                 <div className="title">Mohammad Amoush</div>
-                <div className="subtitle">I am a Student/Programmer/Economist</div>
+                <div className="subtitle">
+                    <span className="subtitle" style={{opacity: 0.8}} >I am a </span>
+                    <span className="subtitle-part" style={{color: "orangered"}}>Student/Programmer/Economist</span>
+                </div>
             </div>;
         }
     }
