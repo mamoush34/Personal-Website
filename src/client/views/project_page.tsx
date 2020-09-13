@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import { observable, action } from "mobx";
 import { Project } from "../models/project";
 import ProjectBox from "./project_box";
+import ProjectPopUp from "./project_popup";
 
 @observer
 export default class ProjectPage extends React.Component<{}> {
@@ -34,11 +35,28 @@ export default class ProjectPage extends React.Component<{}> {
         this.selectedProject = clicked;
     }
 
+    renderPopUp = () => {
+        if (this.selectedProject) {
+            return <ProjectPopUp deSelect={this.deSelectProject} cur_project={this.selectedProject}></ProjectPopUp>;
+        } else {
+            return (null);
+        }
+    }
+
+    @action
+    deSelectProject = () => {
+        if (this.selectedProject) {
+            this.selectedProject = undefined;
+        }
+    }
+
     render() {
         return (
             <div className="project-page">
-                <div className="project_container"></div>
-                {this.projects.map(project => <ProjectBox curProject={project} setSelected={this.setSelectedProject}></ProjectBox>)}
+                <div className="project_container">
+                    {this.projects.map(project => <ProjectBox curProject={project} setSelected={this.setSelectedProject}></ProjectBox>)}
+                </div>
+                {this.renderPopUp()}
             </div>
         );
     }
