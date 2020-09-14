@@ -52,12 +52,21 @@ export default class ProjectPage extends React.Component<{}> {
         }
     }
 
+    fadeBackground = () => {
+        if (this.selectedProject) {
+            return 0.5;
+        } else {
+            return 0;
+        }
+    }
+
     render() {
         return (
             <div className="project-page">
                 <div className="project_container">
                     {this.projects.map(project => <ProjectBox curProject={project} setSelected={this.setSelectedProject}></ProjectBox>)}
                 </div>
+                <div className="fade-in" style={{opacity: this.fadeBackground()}}></div>
                 {this.renderPopUp()}
             </div>
         );
