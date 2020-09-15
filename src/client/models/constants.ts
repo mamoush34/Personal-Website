@@ -32,13 +32,13 @@ export const sceneDesc: string = "•	Created an application that recognized the
 export const sceneUrl: string = "";
 
 export const decisionDesc: string = "Machine Learning implementation of ID3 Algorithm with > 95% accuracy on test data";
-export const decisionUrl: string = "";
+export const decisionUrl: string = "/images/decision.jpg";
 
 export const weenixDesc: string = "A Linux-like OS from scratch in C. Used S5FS as File System, which is backed by a virtual file system. Implemented multithreading, essential drivers, and virtual memory for the system.";
-export const weenixUrl: string = "";
+export const weenixUrl: string = "/images/weenix.png";
 
 export const inTurnDesc: string = "A Web Application that gives users tools to track their job application status in a more automated way. It uses a chrome extension, which requires users to sign up using google account. After the sign-up, if filling an internship application that uses greenhouse.io, the extension will detect the application. The user information will be automatically filled through the database. After application is submitted, the application information like job title, company, date applied, and status of your application automatically shows up in a list item in the home page of the web application. The extension captures this application automatically and puts it into database for the current user as well. You can filter through the applications dynamically using the search bar, on the home view. Inside the home view, you can manually add new job and it'll be added to database and the list. You can also update the status of added job.";
-export const inTurnUrl: string = "";
+export const inTurnUrl: string = "/images/inTurn.png";
 
 export const camDesc: string = "This app will grant a quick way to analyze images, instead of going through exhaustive Google searches to get description of objects present. Fast RCNN is used to segment images and create bounding boxes. On click to bounding boxes the information found on the objects are displayed. Users will be able to query their image using the web application for the project.";
-export const camUrl: string = "";
+export const camUrl: string = "/images/cam.png";
