@@ -23,7 +23,7 @@ export const mapsDesc: string = "Created a navigation app that draws a map on a 
 export const mapsUrl: string = "";
 
 export const UDDUDesc: string = "Collaborated to develop a Start-Up web application that allows users to share travel experiences, activities, and itineraries. Users could browse shared activities based on filters on the city selected. Implemented itinerary creation for users using a cyclic non-deterministic selection algorithm that tried to match preferences on criteria like budget, time, etc. The itinerary could be displayed in various ways including on a map, which was accomplished through Google Maps API. Incorporated persistent data storage for data including credentials through SQLite. Leveraged caching for recently searched activities or the cities`";
-export const UDDUUrl: string = "";
+export const UDDUUrl: string = "/images/UDDU.png";
 
 export const featureDesc: string = "An implementation of  a local feature matching algorithm, which attempts to match multiple views of real-world scene. It uses Harris Corner Detector to get interesting points, SIFT to form local descriptors and ratio or nearest neighbor test for matching";
 export const featureUrl: string = "";
