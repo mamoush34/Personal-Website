@@ -3,6 +3,11 @@ import './project_box.scss';
 import { observer } from "mobx-react";
 import { observable, action } from "mobx";
 import { Project } from "../models/project";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+library.add(faExpandAlt);
 
 interface ProjectBoxInterface {
     setSelected: (selected: Project) => void;
@@ -37,6 +42,7 @@ export default class ProjectBox extends React.Component<ProjectBoxInterface> {
                         opacity : this.pointer_over ? 1 : 0,
                     }}
                 >
+                    <div><FontAwesomeIcon icon={faExpandAlt} size={"2x"}/></div>   
                 </div>
             </div>
         );
