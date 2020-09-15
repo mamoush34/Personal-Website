@@ -37,7 +37,6 @@ export default class ProjectBox extends React.Component<ProjectBoxInterface> {
                         opacity : this.pointer_over ? 1 : 0,
                     }}
                 >
-                    <p>{curProject.overview}</p>
                 </div>
             </div>
         );

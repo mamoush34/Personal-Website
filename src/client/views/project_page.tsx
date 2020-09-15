@@ -12,6 +12,12 @@ export default class ProjectPage extends React.Component<{}> {
 
     @observable projects : Project[] = [];
     @observable selectedProject: Project | undefined;
+
+    @observable opacity: number = 0;
+
+    componentDidMount() {
+        setTimeout(action(() => this.opacity = 1), 10);
+    }
     
     constructor(props: any) {
         super(props);
@@ -62,7 +68,7 @@ export default class ProjectPage extends React.Component<{}> {
 
     render() {
         return (
-            <div className="project-page">
+            <div className="project-page" style={{opacity: this.opacity}}>
                 <div className="project_container">
                     {this.projects.map(project => <ProjectBox curProject={project} setSelected={this.setSelectedProject}></ProjectBox>)}
                 </div>

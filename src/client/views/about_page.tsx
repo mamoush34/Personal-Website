@@ -1,14 +1,21 @@
 import * as React from "react";
 import { observer } from "mobx-react";
 import "./about_page.scss"
+import { observable, action } from "mobx";
 
 
 @observer
 export default  class AboutPage extends React.Component<{}> {
 
+    @observable opacity: number = 0;
+
+    componentDidMount() {
+        setTimeout(action(() => this.opacity = 1), 10);
+    }
+
     render() {
         return(
-            <div className="about-page">
+            <div className="about-page" style={{opacity : this.opacity}}>
                 <div className="img-profile">
                     <img className="profile_image" alt="Profile" src="/images/profile.jpg"/>
                     <div className="profile_info">
