@@ -1,35 +1,29 @@
 export const doodleDesc: string = "An implementation of the popular game DoodleJump, except in this we have a monkey trying to climb in halloween. It's coded in Java, using Object-Oriented Programming principles";
-export const doodleUrl: string = "";
-
-export const tetrisDesc: string = "An implementation of the game Tetris, with additional difficulty levels and unique design. It's coded in Java, using Object-Oriented Programming principles";
-export const tetrisUrl: string = "";
+export const doodleUrl: string = "/images/doodle.png";
 
 export const pacmanDesc: string = "An implementation of the game Pacman, with increasing difficulty. Side Map transitions are enabled. The ghosts use BFS algorithm to chase Pacman, so that the game is actually challenging to users. Every known Pacman feature such as energized pacman is implemented as well";
-export const pacmanUrl: string = "";
+export const pacmanUrl: string = "/images/pacman.png";
 
 export const cShellDesc: string = "A personal implementation of a shell coded in C. The shell has ability to handle unix built-in system calls, child and parent processes, command line input, as well as file handling(descriptors etc.) Besides, the shell is also able to handle multiple processes by being able to handle both foreground and background processes with reaping that results in no leaks";
 export const cShellUrl: string = "/images/cshell.png";
 
 export const mallocDesc: string = "A personal implementation of a dynamic memory allocator for C programs. It's implemented using first-fit explicit free list approach";
-export const mallocUrl: string = "";
+export const mallocUrl: string = "/images/malloc.png";
 
 export const databaseDesc: string = "In this project, you are able to create a simple server to manage a database of key-value pairs over a network. Multiple concurrent users are able to search for items in the database, add new entries and remove existing entries, all while making sure of no data race with proper mutex usage";
-export const databaseUrl: string = "";
-
-export const autocorrectDesc: string = "An autocorrect implementation that gives suggestions in real time while user is typing. Different settings like prefix correcting, whitespace correcting, and LED distance could be used and set by user";
-export const autocorrectUrl: string = "";
+export const databaseUrl: string = "/images/database.png";
 
 export const mapsDesc: string = "Created a navigation app that draws a map on a canvas, loaded from a database, and lets users find a way to their target. Implemented K-D Tree to find roads that fall inside a box of 4 coordinates, or closest to a point. •	The roads are painted depending on the traffic values received through server, and Dijkstra implementation takes traffic into account while giving the shortest path.";
-export const mapsUrl: string = "";
+export const mapsUrl: string = "/images/maps.png";
 
 export const UDDUDesc: string = "Collaborated to develop a Start-Up web application that allows users to share travel experiences, activities, and itineraries. Users could browse shared activities based on filters on the city selected. Implemented itinerary creation for users using a cyclic non-deterministic selection algorithm that tried to match preferences on criteria like budget, time, etc. The itinerary could be displayed in various ways including on a map, which was accomplished through Google Maps API. Incorporated persistent data storage for data including credentials through SQLite. Leveraged caching for recently searched activities or the cities`";
 export const UDDUUrl: string = "/images/UDDU.png";
 
 export const featureDesc: string = "An implementation of  a local feature matching algorithm, which attempts to match multiple views of real-world scene. It uses Harris Corner Detector to get interesting points, SIFT to form local descriptors and ratio or nearest neighbor test for matching";
-export const featureUrl: string = "";
+export const featureUrl: string = "/images/feature.png";
 
 export const sceneDesc: string = "•	Created an application that recognized the scenery of an image through a bag of words representation model used with the nearest neighbor and SVM classifiers";
-export const sceneUrl: string = "";
+export const sceneUrl: string = "/images/scene.png";
 
 export const decisionDesc: string = "Machine Learning implementation of ID3 Algorithm with > 95% accuracy on test data";
 export const decisionUrl: string = "/images/decision.jpg";
