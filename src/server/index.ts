@@ -15,7 +15,7 @@ const server = express();
 
 server.use((req, res, next) => {
     if (!req.secure && req.get("x-forwarded-proto") !== "https") {
-        return res.redirect(`https://${req.host}${req.url}`);
+        return res.redirect(`https://${req.hostname}${req.url}`);
     }
     next();
 });
