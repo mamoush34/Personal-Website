@@ -4,7 +4,7 @@ import * as cors from "cors";
 import * as bodyParser from "body-parser";
 import { Database } from "./database";
 
-const port = 1050;
+const port = process.env.PORT || 1050;
 
 const static_path = resolve(__dirname, "../../static");
 const content_path = resolve(__dirname, "../../src/index.html");
@@ -12,6 +12,7 @@ const content_path = resolve(__dirname, "../../src/index.html");
 const server = express();
 
 server.use(express.static(static_path));
+
 
 server.use(bodyParser.json({ limit: "10mb" }));
 server.use(bodyParser.urlencoded({ extended: true }));
