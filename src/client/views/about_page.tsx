@@ -35,12 +35,7 @@ export default  class AboutPage extends React.Component<{}> {
                         </div>
                         <br/>
                         <div>Brown University, Sc.B. Computer Science, B.A Economics</div>
-                        <div>mohammad_amoush@brown.edu | muhammedamoush@gmail.com</div>
-                        <br/>
-                        <a className="profile_link" href="https://www.linkedin.com/in/mohammad-amoush/" target="_blank">https://www.linkedin.com/in/mohammad-amoush/</a>
-                        <a className="profile_link"href="https://github.com/mamoush34" target="_blank">https://github.com/mamoush34</a>
-
-
+                        <div>mohammad_amoush@brown.edu | muhammedamoush@gmail.com</div>    
                     </div>
                 </div>
             </div>
