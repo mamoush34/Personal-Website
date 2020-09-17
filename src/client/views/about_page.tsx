@@ -23,7 +23,7 @@ export default  class AboutPage extends React.Component<{}> {
                             I was first introduced to Computer Science in high school. The field has always been of interest to me, but I only went as far as coding a few mini-games. 
                             Despite the limited exposure, those experiences sparked my intellectual curiosity, prompting me to take that first, introductory CS course my Freshman year at Brown University. 
                             I haven’t looked back since. Three years later I have had a series of experiences with the field through coursework, research, and independent projects. 
-                            Some of my favorites include systems projects in C, 2D game development in Java, full-stack application development in JavaScript and Typescript using 
+                            Some of my favorites include systems projects in C, 2D game development in Java, full-stack application development in JavaScript and TypeScript using 
                             the React framework with clients served by Node and Java (Spark), as well as Computer Vision projects in TensorFlow. 
                             In the future, I hope to explore projects in an industry setting and am always looking forward to taking part in initiatives that are meaningful to the communities and cultures I am a part of. 
                             Outside of my work in the Computer Science field, I am a student of Economics and am passionate about finding the intersections between the technical and the business facets of the industry. 
