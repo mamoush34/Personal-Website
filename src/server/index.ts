@@ -4,7 +4,7 @@ import * as cors from "cors";
 import * as bodyParser from "body-parser";
 import { Database } from "./database";
 
-const port = process.env.PORT || 1050;
+const port = process.env.PORT || 8000;
 
 
 

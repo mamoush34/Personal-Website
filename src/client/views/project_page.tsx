@@ -21,6 +21,8 @@ export default class ProjectPage extends React.Component<{}> {
     
     constructor(props: any) {
         super(props);
+        this.projects.push(new Project("Pandemic Deadline", Constants.pandemicDeadline, Constants.pandemicUrl, ["Python, NumPy, TypeScript, React, NodeJS, D3.Js"]));
+        this.projects.push(new Project("DeepTrex", Constants.deepTrex, Constants.deepUrl, ["Python, TensorFlow, NumPy"]));
         this.projects.push(new Project("Search with Cam", Constants.camDesc, Constants.camUrl, ["Python, TensorFlow, NumPy, OpenCV"]));
         this.projects.push(new Project("InTurn", Constants.inTurnDesc, Constants.inTurnUrl, ["React, Node Express, TypeScript"]));
         this.projects.push(new Project("UDDU", Constants.UDDUDesc, Constants.UDDUUrl, ["Java, TypeScript, React, NodeJS, Java Spark, Html/CSS, JavaScript, MobX"]));
