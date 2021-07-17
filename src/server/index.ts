@@ -4,7 +4,7 @@ import * as cors from "cors";
 import * as bodyParser from "body-parser";
 import { Database } from "./database";
 
-const port = process.env.PORT || 33129;
+const port = process.env.PORT || 1050;
 
 
 
@@ -13,12 +13,12 @@ const content_path = resolve(__dirname, "../../src/index.html");
 
 const server = express();
 
-server.use((req, res, next) => {
-    if (!req.secure && req.get("x-forwarded-proto") !== "https") {
-        return res.redirect(`https://${req.hostname}${req.url}`);
-    }
-    next();
-});
+// server.use((req, res, next) => {
+//     if (!req.secure && req.get("x-forwarded-proto") !== "https") {
+//         return res.redirect(`https://${req.hostname}${req.url}`);
+//     }
+//     next();
+// });
 
 server.use(express.static(static_path));
 
