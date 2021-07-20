@@ -28,9 +28,9 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cors());
 server.use('/images', express.static(__dirname + '/images'));
 
-// server.get("/", (_req, res) => res.sendFile(content_path));
-server.get("/", (_req, res) => res.redirect("/home"));
-server.get("/home", (_req, res) => res.sendFile(content_path));
+server.get("/", (_req, res) => res.sendFile(content_path));
+// server.get("/", (_req, res) => res.redirect("/home"));
+// server.get("/home", (_req, res) => res.sendFile(content_path));
 
 
 server.listen(port, () => console.log(`Server listening on port ${port}...`));
