@@ -1,11 +1,12 @@
 {
     "name": "template",
     "version": "1.0.0",
+    "engines": {"node": "13.6.0", "npm": "6.13.4"},
     "description": "",
     "main": "index.ts",
     "scripts": {
         "make": "npm run build && npm run start",
-        "start": "cross-env NODE_OPTIONS=--max_old_space_size=4096 ts-node-dev -- src/server/index.ts --poll",
+        "start": "cross-env NODE_OPTIONS=--max_old_space_size=4096 ts-node-dev -- src/server/index.ts",
         "build": "cross-env NODE_OPTIONS=--max_old_space_size=8192 webpack --env production"
     },
     "repository": {
