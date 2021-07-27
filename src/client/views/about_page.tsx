@@ -26,16 +26,16 @@ export default  class AboutPage extends React.Component<{}> {
                             I haven’t looked back since.</p>
                             <br/>
                             <p>Three years later I have had a series of experiences with the field through coursework, research, and independent projects. 
-                            Some of my favorites include systems projects in C, 2D game development in Java, full-stack application development in JavaScript and TypeScript using 
-                            the React framework with clients served by Node and Java (Spark) including this website, as well as Computer Vision projects in TensorFlow. </p>
+                            Some of my favorites include systems projects in C, 2D game development in Java, data representation using D3, full-stack application development in JavaScript and TypeScript using 
+                            the React framework with clients served by Node and Java (Spark) including this website, as well as Computer Vision and Deep Learning projects in TensorFlow. </p>
                             <br/>
                             <p>In the future, I hope to explore projects in an industry setting and am always looking forward to taking part in initiatives that are meaningful to the communities and cultures I am a part of. 
                             Outside of my work in the Computer Science field, I am a student of Economics and am passionate about finding the intersections between the technical and the business facets of the industry. 
                             In my free time, I love watching sports and can talk NBA or soccer for hours. You can always find me at the gym or playing pick-up basketball and will occasionally spot me at specialty dessert shops attempting to satisfy my sweet tooth.  </p>                  
                         </div>
                         <br/>
-                        <div>Brown University, Sc.B. Computer Science, B.A Economics</div>
-                        <div>mohammad_amoush@brown.edu | muhammedamoush@gmail.com</div>    
+                        <div>Brown University, Ms.C. Computer Science, Sc.B. Computer Science, B.A Economics</div>
+                        <div>mohammadamoush98@gmail.com | muhammedamoush@gmail.com</div>    
                     </div>
                 </div>
             </div>
