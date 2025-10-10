@@ -30,7 +30,7 @@ module.exports = (env, argv) => {
             new CopyPlugin({
                 patterns: [
                     { 
-                        from: resolve(__dirname, "src/assets"), 
+                        from: resolve(__dirname, "src/assets/images"), 
                         to: resolve(public, "images"),
                         noErrorOnMissing: true
                     }
