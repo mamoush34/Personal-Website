@@ -1,29 +1,23 @@
-import { MongoClient, Collection, Db, InsertOneResult, InsertManyResult, InsertManyOptions, ObjectId } from "mongodb";
+import { MongoClient, Collection, Db, InsertOneResult, InsertManyResult, ObjectId } from "mongodb";
 
 export namespace Database {
 
     const database_url = "mongodb://localhost:27017/";
-    const connection_options = { useNewUrlParser: true, useUnifiedTopology: true };
+    const connection_options = {};
     let database: Db;
 
     export async function connect(target: string) {
-        database = await new Promise<Db>((resolve, reject) => {
-            MongoClient.connect(database_url, connection_options, (error, client) => error ? reject(error) : resolve(client.db(target)));
-        });
+        const client = new MongoClient(database_url, connection_options);
+        await client.connect();
+        database = client.db(target);
     }
 
     export async function getOrCreateCollection(name: string) {
-        return new Promise<Collection<any>>((resolve, reject) => {
-            database.collection(name, (error, collection) => {
-                if (error) {
-                    new Promise<Collection<any>>((resolve, reject) => {
-                        database.createCollection(name, (error, collection) => error ? reject(error) : resolve(collection));
-                    }).then(resolve).catch(reject);
-                } else {
-                    resolve(collection);
-                }
-            });
-        });
+        try {
+            return database.collection(name);
+        } catch (error) {
+            return await database.createCollection(name);
+        }
     }
 
     export async function existsCollection(collection: string) {
@@ -37,20 +31,12 @@ export namespace Database {
         return false;
     }
 
-    export async function insert(collection: string, data: any[] | any, options?: InsertManyOptions) {
+    export async function insert(collection: string, data: any[] | any) {
         const resolved = await getOrCreateCollection(collection);
         if (Array.isArray(data)) {
-            return new Promise<InsertManyResult<any>>((resolve, reject) => {
-                resolved.insertMany(data, options || {}, (error, result) => {
-                    error ? reject(error) : resolve(result);
-                });
-            });
+            return await resolved.insertMany(data);
         } else {
-            return new Promise<InsertOneResult<any>>((resolve, reject) => {
-                resolved.insertOne(data, (error, result) => {
-                    error ? reject(error) : resolve(result);
-                });
-            });
+            return await resolved.insertOne(data);
         }
     }
 

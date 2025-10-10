@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
         entry: {
             bundle: "./src/client/index.tsx"
         },
-        devtool: isProduction ? "source-map" : "eval-source-map",
+        devtool: isProduction ? "source-map" : "eval-cheap-module-source-map",
         output: {
             filename: "[name].js",
             path: public,
@@ -109,16 +109,7 @@ module.exports = (env, argv) => {
             ]
         },
         optimization: {
-            splitChunks: {
-                chunks: 'all',
-                cacheGroups: {
-                    vendor: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: 'vendors',
-                        chunks: 'all',
-                    },
-                },
-            },
+            splitChunks: false,
         },
         performance: {
             hints: isProduction ? 'warning' : false,

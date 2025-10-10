@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
 import './home_page.scss';
 
 const HomePage: React.FC = observer(() => {
+    const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false);
     const [typewriterText, setTypewriterText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -114,6 +116,7 @@ const HomePage: React.FC = observer(() => {
                     className="cta-button primary"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/portfolio')}
                 >
                     View My Work
                 </motion.button>
@@ -121,6 +124,7 @@ const HomePage: React.FC = observer(() => {
                     className="cta-button secondary"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/about')}
                 >
                     Get In Touch
                 </motion.button>
