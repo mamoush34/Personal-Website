@@ -1,5 +1,19 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import HomeView from "./views/home_view";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-ReactDOM.render(<HomeView background={"#fcf8e394"} />, document.getElementById("root"));
+const container = document.getElementById('root');
+if (!container) {
+    throw new Error('Root element not found');
+}
+
+const root = createRoot(container);
+
+root.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
+);

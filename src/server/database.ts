@@ -1,4 +1,4 @@
-import { MongoClient, Collection, Db, InsertOneWriteOpResult, InsertWriteOpResult, CollectionInsertManyOptions, ObjectId } from "mongodb";
+import { MongoClient, Collection, Db, InsertOneResult, InsertManyResult, InsertManyOptions, ObjectId } from "mongodb";
 
 export namespace Database {
 
@@ -37,16 +37,16 @@ export namespace Database {
         return false;
     }
 
-    export async function insert(collection: string, data: any[] | any, options?: CollectionInsertManyOptions) {
+    export async function insert(collection: string, data: any[] | any, options?: InsertManyOptions) {
         const resolved = await getOrCreateCollection(collection);
         if (Array.isArray(data)) {
-            return new Promise<InsertWriteOpResult<any>>((resolve, reject) => {
+            return new Promise<InsertManyResult<any>>((resolve, reject) => {
                 resolved.insertMany(data, options || {}, (error, result) => {
                     error ? reject(error) : resolve(result);
                 });
             });
         } else {
-            return new Promise<InsertOneWriteOpResult<any>>((resolve, reject) => {
+            return new Promise<InsertOneResult<any>>((resolve, reject) => {
                 resolved.insertOne(data, (error, result) => {
                     error ? reject(error) : resolve(result);
                 });

@@ -1,49 +1,293 @@
-.about-page{
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    transition: all 2s ease;
-    overflow-y: scroll;
+// CSS Variables
+:root {
+    --primary-font: 'Courier New', Courier, monospace;
+    --secondary-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --primary-color: #333;
+    --secondary-color: #666;
+    --accent-color: #007bff;
+    --text-muted: #888;
+    --background-color: #fcf8e394;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
 
-    .img-profile {
-        width: 100%;
-        flex-direction: row;
-        pointer-events: none;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        min-width: 500px;
+.about-page {
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--background-color) 0%, rgba(252, 248, 227, 0.6) 100%);
+    font-family: var(--secondary-font);
+    overflow-y: auto;
 
-        .profile_image {
-            align-self: center;
-            width: 50%;
-            margin-left: 5%;
-            border: 1px solid rgba(0,0,0,.2);
-            box-shadow: 5px 5px 10px rgba(0,0,0,.2);
-        }
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+    }
 
-        .profile_info {
-            max-height: 100%;
-            margin: 10px 50px 0px 50px;
-            font-family: 'Courier New', Courier, monospace;
-            color: black;
-            text-align: justify;
+    .profile-section {
+        position: sticky;
+        top: 2rem;
 
-            .profile_link {
-                cursor: pointer;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                color: #00f;
-                pointer-events: all;
+        .profile-image-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all var(--transition-speed) ease;
+
+            &:hover {
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .profile-image {
+                width: 100%;
+                height: auto;
                 display: block;
+                transition: transform var(--transition-speed) ease;
+            }
+
+            .image-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+                color: white;
+                padding: 2rem 1rem 1rem;
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.1rem;
             }
         }
-       
     }
-   
 
-   
+    .content-section {
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: var(--primary-font);
+            text-align: center;
+        }
 
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-family: var(--primary-font);
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: var(--accent-color);
+                border-radius: 2px;
+            }
+        }
+
+        p {
+            line-height: 1.7;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .story-section,
+        .future-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .skills-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+
+            .skills-grid {
+                display: grid;
+                gap: 1rem;
+                margin-top: 1rem;
+
+                .skill-item {
+                    .skill-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 0.5rem;
+
+                        .skill-name {
+                            font-weight: 600;
+                            color: var(--primary-color);
+                        }
+
+                        .skill-level {
+                            font-size: 0.9rem;
+                            color: var(--accent-color);
+                            font-weight: 600;
+                        }
+                    }
+
+                    .skill-bar {
+                        height: 8px;
+                        background: rgba(0, 0, 0, 0.1);
+                        border-radius: 4px;
+                        overflow: hidden;
+
+                        .skill-progress {
+                            height: 100%;
+                            background: linear-gradient(90deg, var(--accent-color), #00d4ff);
+                            border-radius: 4px;
+                            transition: width 0.8s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        .education-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+
+            .education-item {
+                h3 {
+                    font-size: 1.3rem;
+                    color: var(--primary-color);
+                    margin-bottom: 0.5rem;
+                    font-family: var(--primary-font);
+                }
+
+                p {
+                    color: var(--secondary-color);
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .contact-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1rem;
+
+                .contact-link {
+                    color: var(--accent-color);
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: color var(--transition-speed) ease;
+                    padding: 0.5rem;
+                    border-radius: var(--border-radius);
+                    transition: all var(--transition-speed) ease;
+
+                    &:hover {
+                        background: rgba(0, 123, 255, 0.1);
+                        color: #0056b3;
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+    .about-page {
+        .about-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .profile-section {
+            position: static;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .about-page {
+        padding: 1rem;
+
+        .content-section {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .story-section,
+            .future-section,
+            .skills-section,
+            .education-section,
+            .contact-section {
+                padding: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .about-page {
+        padding: 0.5rem;
+
+        .content-section {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .story-section,
+            .future-section,
+            .skills-section,
+            .education-section,
+            .contact-section {
+                padding: 1rem;
+            }
+
+            .contact-info {
+                .contact-link {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
 }
