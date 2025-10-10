@@ -33,6 +33,10 @@ module.exports = (env, argv) => {
                         from: resolve(__dirname, "src/assets/images"), 
                         to: resolve(public, "images"),
                         noErrorOnMissing: true
+                    },
+                    {
+                        from: resolve(__dirname, "src/index.html"),
+                        to: resolve(public, "index.html")
                     }
                 ]
             })

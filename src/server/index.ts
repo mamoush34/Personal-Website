@@ -7,11 +7,15 @@ import { Database } from "./database";
 const port = process.env.PORT || 8000;
 
 const static_path = resolve(__dirname, "../../static");
-const content_path = resolve(__dirname, "../../src/index.html");
+const content_path = resolve(__dirname, "../../static/index.html");
 
 const server = express();
 
 server.use((req: any, res: any, next: any) => {
+    // Skip HTTPS redirect for localhost development
+    if (req.hostname === 'localhost' || req.hostname === '127.0.0.1') {
+        return next();
+    }
     if (!req.secure && req.get("x-forwarded-proto") !== "https") {
         return res.redirect(`https://${req.hostname}${req.url}`);
     }
