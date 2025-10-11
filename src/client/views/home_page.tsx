@@ -10,7 +10,7 @@ const HomePage: React.FC = observer(() => {
     const [typewriterText, setTypewriterText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const roles = ['Student', 'Programmer', 'Economist', 'Problem Solver', 'Tech Enthusiast'];
+    const roles = ['Programmer', 'Economist', 'Problem Solver', 'Tech Enthusiast'];
     const fullText = `I am a ${roles.join('/')}`;
 
     useEffect(() => {

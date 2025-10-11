@@ -34,12 +34,15 @@ const AboutPage: React.FC = observer(() => {
     };
 
     const skills = [
-        { name: 'Computer Science', level: 90 },
-        { name: 'Economics', level: 85 },
-        { name: 'Machine Learning', level: 80 },
-        { name: 'Full-Stack Development', level: 85 },
-        { name: 'Systems Programming', level: 75 },
-        { name: 'Data Analysis', level: 80 },
+        { name: 'Recommender Systems & Ranking', level: 90 },
+        { name: 'Feature Engineering & A/B Experimentation', level: 85 },
+        { name: 'Full-Stack Development (React, Node, Java)', level: 80 },
+        { name: 'Machine Learning (TensorFlow, PyTorch)', level: 80 },
+        { name: 'Distributed Systems & Backend Architecture', level: 75 },
+        { name: 'Data Processing (Python, SQL, Spark)', level: 75 },
+        { name: 'Data Visualization (D3.js, Plotly)', level: 70 },
+        { name: 'Cloud & DevOps (AWS, Docker)', level: 70 },
+        { name: 'Economics & Business Analytics', level: 65 },
     ];
 
     return (
@@ -78,25 +81,40 @@ const AboutPage: React.FC = observer(() => {
                     <motion.div className="story-section" variants={itemVariants}>
                         <h2>My Journey</h2>
                         <p>
-                            I was first introduced to Computer Science in high school. The field has always been of interest to me, but I only went as far as coding a few mini-games.
-                            Despite the limited exposure, those experiences sparked my intellectual curiosity, prompting me to take that first, introductory CS course my Freshman year at Brown University.
-                            I haven't looked back since.
+                            I first got into Computer Science in high school, where coding small games
+                            sparked my curiosity about how software systems work. That curiosity led me
+                            to study Computer Science at Brown University, where I built a foundation
+                            across systems programming, data visualization, web development, and applied
+                            machine learning.
+                            <br />
+                            Some of my favorite projects included systems design in C, 2D game development
+                            in Java, interactive data representation with D3, and full-stack web
+                            development using React and Node. I also explored Computer Vision and Deep
+                            Learning with TensorFlow, which shaped my long-term interest in intelligent
+                            systems.
                         </p>
                         <p>
-                            Three years later I have had a series of experiences with the field through coursework, research, and independent projects.
-                            Some of my favorites include systems projects in C, 2D game development in Java, data representation using D3, full-stack application development in JavaScript and TypeScript using
-                            the React framework with clients served by Node and Java (Spark) including this website, as well as Computer Vision and Deep Learning projects in TensorFlow.
+                            I'm currently a Software Engineer at Meta, working on large-scale Recommendation and Ranking Systems for IG Feed Ranking.
+                            My focus areas include feature authoring, contextual re-ranking, diversity optimization, and infrastructure efficiency.
+                            I design and analyze A/B experiments to evaluate new product ideas and algorithmic improvements, driving measurable gains in user engagement and system performance.
+                        </p>
+                        <p>
+                            I'm passionate about the technical and practical challenges of building scalable, AI-driven systems—from feature design and model evaluation to serving efficiency and real-world impact.
+                            I aim to keep growing as an engineer specializing in machine learning systems and recommender architectures that make intelligent, data-driven experiences more effective and accessible.
                         </p>
                     </motion.div>
 
                     <motion.div className="future-section" variants={itemVariants}>
                         <h2>Looking Forward</h2>
                         <p>
-                            In the future, I hope to explore projects in an industry setting and am always looking forward to taking part in initiatives that are meaningful to the communities and cultures I am a part of.
-                            Outside of my work in the Computer Science field, I am a student of Economics and am passionate about finding the intersections between the technical and the business facets of the industry.
+                            I'm looking forward to continuing my journey in AI and large-scale recommendation systems, with a focus on improving personalization, ranking efficiency, and model interpretability.
+                            I'm particularly interested in how advances in machine learning infrastructure and experimentation platforms can accelerate innovation in recommender systems.
                         </p>
                         <p>
-                            In my free time, I love watching sports and can talk NBA or soccer for hours. You can always find me at the gym or playing pick-up basketball and will occasionally spot me at specialty dessert shops attempting to satisfy my sweet tooth.
+                            I'm also fascinated by the intersection of technology, data, and business, and how engineering decisions translate into measurable product outcomes. My long-term goal is to build AI systems that are not only technically sophisticated but also enhance real-world experiences for millions of users.
+                        </p>
+                        <p>
+                            Outside of work, I stay active through basketball and gym sessions, love watching NBA and soccer, and have a well-documented weakness for specialty desserts.
                         </p>
                     </motion.div>
 
@@ -141,9 +159,6 @@ const AboutPage: React.FC = observer(() => {
                         <div className="contact-info">
                             <a href="mailto:mohammadamoush98@gmail.com" className="contact-link">
                                 mohammadamoush98@gmail.com
-                            </a>
-                            <a href="mailto:muhammedamoush@gmail.com" className="contact-link">
-                                muhammedamoush@gmail.com
                             </a>
                         </div>
                     </motion.div>
