@@ -15,7 +15,8 @@
         "lint": "eslint src --ext .ts,.tsx",
         "lint:fix": "eslint src --ext .ts,.tsx --fix",
         "format": "prettier --write \"src/**/*.{ts,tsx,scss,css}\"",
-        "precommit": "npm run lint:fix && npm run format"
+        "precommit": "npm run lint:fix && npm run format",
+        "vercel-build": "npm run build"
     },
     "repository": {
         "type": "git",
