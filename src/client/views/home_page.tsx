@@ -1,28 +1,136 @@
-import * as React from "react";
-import { observer } from "mobx-react";
-import "./home_page.scss"
-import { observable, action } from "mobx";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
+import './home_page.scss';
 
+const HomePage: React.FC = observer(() => {
+    const navigate = useNavigate();
+    const [isVisible, setIsVisible] = useState(false);
+    const [typewriterText, setTypewriterText] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-@observer
-export default  class HomePage extends React.Component<{}> {
+    const roles = ['Programmer', 'Economist', 'Problem Solver', 'Tech Enthusiast'];
+    const fullText = `I am a ${roles.join('/')}`;
 
-    @observable opacity: number = 0;
+    useEffect(() => {
+        setIsVisible(true);
+    }, []);
 
-    componentDidMount() {
-        setTimeout(action(() => this.opacity = 1), 10);
-    }
+    useEffect(() => {
+        if (currentIndex < fullText.length) {
+            const timeout = setTimeout(() => {
+                setTypewriterText(fullText.slice(0, currentIndex + 1));
+                setCurrentIndex(currentIndex + 1);
+            }, 100);
 
-    render() {
-        return(
-            <div className="home-page" style={{opacity: this.opacity}}>
-                <div className="title">Mohammad Amoush</div>
-                <div className="subtitle">
-                    <span className="subtitle" style={{opacity: 0.8}} >I am a </span>
-                    <span className="subtitle-part" style={{color: "orangered"}}>Student/Programmer/Economist</span>
-                </div>
-            </div>
-        );
-    }
+            return () => clearTimeout(timeout);
+        }
+    }, [currentIndex, fullText]);
 
-}
+    const containerVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: 'easeOut',
+            },
+        },
+    };
+
+    const titleVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delay: 0.2,
+                duration: 0.6,
+                ease: 'easeOut',
+            },
+        },
+    };
+
+    const subtitleVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.6,
+                duration: 0.6,
+                ease: 'easeOut',
+            },
+        },
+    };
+
+    return (
+        <motion.div
+            className="home-page"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isVisible ? 'visible' : 'hidden'}
+        >
+            <motion.div
+                className="title"
+                variants={titleVariants}
+                initial="hidden"
+                animate={isVisible ? 'visible' : 'hidden'}
+            >
+                Mohammad Amoush
+            </motion.div>
+
+            <motion.div
+                className="subtitle"
+                variants={subtitleVariants}
+                initial="hidden"
+                animate={isVisible ? 'visible' : 'hidden'}
+            >
+                <span className="typewriter-text">
+                    {typewriterText}
+                    <span className="cursor">|</span>
+                </span>
+            </motion.div>
+
+            <motion.div
+                className="hero-description"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+            >
+                <p>
+                    Welcome to my digital space. I'm passionate about technology, economics, and
+                    solving complex problems through innovative solutions.
+                </p>
+            </motion.div>
+
+            <motion.div
+                className="cta-buttons"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.6 }}
+            >
+                <motion.button
+                    className="cta-button primary"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/portfolio')}
+                >
+                    View My Work
+                </motion.button>
+                <motion.button
+                    className="cta-button secondary"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/about')}
+                >
+                    Get In Touch
+                </motion.button>
+            </motion.div>
+        </motion.div>
+    );
+});
+
+export default HomePage;

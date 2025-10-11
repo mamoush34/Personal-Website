@@ -1,42 +1,80 @@
-import { observer } from "mobx-react";
-import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import "./top_bar.scss";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { observer } from 'mobx-react-lite';
+import './top_bar.scss';
 
+const TopBar: React.FC = observer(() => {
+    const location = useLocation();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-library.add(faGithub, faLinkedin);
+    const navItems = [
+        { path: '/', label: 'Home', id: 'home' },
+        { path: '/about', label: 'About Me', id: 'about' },
+        { path: '/portfolio', label: 'Portfolio', id: 'projects' },
+    ];
 
-interface TopBarProps{
-    renderHome : () => void;
-    renderAbout : () => void;
-    renderProjects : () => void;
-}
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
 
-@observer
-export default class TopBar extends React.Component<TopBarProps> {
-    
-    render() {
-        let props = this.props;
-        return(
-            <div className="top_container">
-                <div className="buttons" id="home" title="Home" onClick={props.renderHome} style={{fontSize: 'large'}}>
-                    Home
-                </div>
-                <div className="buttons" id="about" title="About Me!" onClick={props.renderAbout} style={{fontSize: 'large'}}>
-                    About Me
-                </div>
-                <div className="buttons" id="projects" title="Projects" onClick={props.renderProjects} style={{fontSize: 'large'}}>
-                    Portfolio
-                </div>
-                <a className="buttons" id="git" title="GitHub" href="https://github.com/mamoush34" target="_blank" style={{marginLeft: 'auto'}}>
-                        <FontAwesomeIcon icon={faGithub} size={"2x"} ></FontAwesomeIcon>
-                </a>
-                <a className="buttons" id="linkedin" title="LinkedIn" href="https://www.linkedin.com/in/mohammad-amoush/" target="_blank">
-                        <FontAwesomeIcon icon={faLinkedin} size={"2x"} ></FontAwesomeIcon>
-                </a>  
+    return (
+        <nav className="top_container" role="navigation" aria-label="Main navigation">
+            <div className="nav-brand">
+                <Link to="/" className="brand-link">
+                    Mohammad Amoush
+                </Link>
             </div>
-        );
-    }
-}
+
+            <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+                {navItems.map(item => (
+                    <Link
+                        key={item.id}
+                        to={item.path}
+                        className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                        title={item.label}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        {item.label}
+                    </Link>
+                ))}
+            </div>
+
+            <div className="nav-social">
+                <a
+                    className="social-link"
+                    href="https://github.com/mamoush34"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="GitHub"
+                    aria-label="Visit GitHub profile"
+                >
+                    <FontAwesomeIcon icon={faGithub} size="lg" />
+                </a>
+                <a
+                    className="social-link"
+                    href="https://www.linkedin.com/in/mohammad-amoush/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="LinkedIn"
+                    aria-label="Visit LinkedIn profile"
+                >
+                    <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                </a>
+            </div>
+
+            <button
+                className="mobile-menu-toggle"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
+            >
+                <FontAwesomeIcon icon={faBars} />
+            </button>
+        </nav>
+    );
+});
+
+export default TopBar;

@@ -1,0 +1,91 @@
+// CSS Variables
+:root {
+    --primary-font: 'Courier New', Courier, monospace;
+    --secondary-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --primary-color: #333;
+    --secondary-color: #666;
+    --accent-color: #007bff;
+    --text-muted: #888;
+    --background-color: #fcf8e394;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+.app {
+    min-height: 100vh;
+    background: var(--background-color);
+    font-family: var(--secondary-font);
+    position: relative;
+}
+
+.main-content {
+    width: 100%;
+    min-height: calc(100vh - 70px); // Adjust based on top bar height
+    padding-top: 70px; // Account for fixed top bar
+    overflow-x: hidden;
+}
+
+// Global styles
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--secondary-font);
+    line-height: 1.6;
+    color: var(--primary-color);
+    background: var(--background-color);
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+// Focus styles
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+// Button reset
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+// Link styles
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+
+    &:hover {
+        color: #0056b3;
+    }
+}
+
+// Responsive utilities
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: 60px;
+        min-height: calc(100vh - 60px);
+    }
+}
