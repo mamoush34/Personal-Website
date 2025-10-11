@@ -138,10 +138,7 @@ const ProjectPopup: React.FC<ProjectPopupProps> = observer(({ project, onClose }
                         </div>
 
                         <div className="popup-actions">
-                            <button
-                                className="action-button secondary"
-                                onClick={onClose}
-                            >
+                            <button className="action-button secondary" onClick={onClose}>
                                 Close
                             </button>
                         </div>

@@ -9,7 +9,7 @@ export const projects: Project[] = [
     ),
     new Project(
         'DeepTrex',
-        'A deep reinforcement learning model that can perform comparably well to an intermediate-level human player in the four-player, predominantly Middle-Eastern card game Trex. The game is relatively straightforward for a human to learn, but does have a very specific and comparatively complex structure containing a fixed number of sub-games. There are 4 Kingdoms each consisting of 5 contracts, and, glossing over the nature of the Trex contract, each contract is effectively 13 tricks. Each one requires strategy to consistently perform well. We have found it a compelling challenge to tackle because at any given time (particularly early in a round, or at any point if one doesn\'t count cards) the game state is one of imperfect information. Thus, an initial point of interest in the project was learning to what extent a deep learning model is able to cope with the combination of, at varying times, both very constrained choices (a subset of legal moves) and more arbitrary actions (strategy)',
+        "A deep reinforcement learning model that can perform comparably well to an intermediate-level human player in the four-player, predominantly Middle-Eastern card game Trex. The game is relatively straightforward for a human to learn, but does have a very specific and comparatively complex structure containing a fixed number of sub-games. There are 4 Kingdoms each consisting of 5 contracts, and, glossing over the nature of the Trex contract, each contract is effectively 13 tricks. Each one requires strategy to consistently perform well. We have found it a compelling challenge to tackle because at any given time (particularly early in a round, or at any point if one doesn't count cards) the game state is one of imperfect information. Thus, an initial point of interest in the project was learning to what extent a deep learning model is able to cope with the combination of, at varying times, both very constrained choices (a subset of legal moves) and more arbitrary actions (strategy)",
         '/images/DeepTrex.png',
         ['Python', 'TensorFlow', 'NumPy']
     ),
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     ),
     new Project(
         'InTurn',
-        'A Web Application that gives users tools to track their job application status in a more automated way. It uses a chrome extension, which requires users to sign up using google account. After the sign-up, if filling an internship application that uses greenhouse.io, the extension will detect the application. The user information will be automatically filled through the database. After the application is submitted, the application information like job title, company, date applied, and status of your application automatically shows up in a list item in the home page of the web application. The extension captures this application automatically and puts it into the database for the current user as well. You can filter through the applications dynamically using the search bar, on the home view. Inside the home view, you can manually add new jobs and it\'ll be added to the database and the list. You can also update the status of the added job.',
+        "A Web Application that gives users tools to track their job application status in a more automated way. It uses a chrome extension, which requires users to sign up using google account. After the sign-up, if filling an internship application that uses greenhouse.io, the extension will detect the application. The user information will be automatically filled through the database. After the application is submitted, the application information like job title, company, date applied, and status of your application automatically shows up in a list item in the home page of the web application. The extension captures this application automatically and puts it into the database for the current user as well. You can filter through the applications dynamically using the search bar, on the home view. Inside the home view, you can manually add new jobs and it'll be added to the database and the list. You can also update the status of the added job.",
         '/images/inTurn.png',
         ['React', 'Node Express', 'TypeScript']
     ),
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     ),
     new Project(
         'Maps',
-        'Created a navigation app that draws a map on a canvas, loaded from a database, and lets users find a way to their target. Implemented a K-D Tree to find roads that fall inside a box of 4 coordinates, or closest to a point. The roads are painted depending on the traffic values received through server, and Dijkstra implementation takes traffic into account while giving the shortest path. The road names are suggested to users as they\'re typing with the help of my AutoCorrect implementation that relies on an implemented Trie structure.',
+        "Created a navigation app that draws a map on a canvas, loaded from a database, and lets users find a way to their target. Implemented a K-D Tree to find roads that fall inside a box of 4 coordinates, or closest to a point. The roads are painted depending on the traffic values received through server, and Dijkstra implementation takes traffic into account while giving the shortest path. The road names are suggested to users as they're typing with the help of my AutoCorrect implementation that relies on an implemented Trie structure.",
         '/images/maps.png',
         ['Java', 'Java Spark', 'Html/CSS', 'JavaScript', 'JQuery']
     ),
@@ -87,9 +87,8 @@ export const projects: Project[] = [
     ),
     new Project(
         'Malloc',
-        'A personal implementation of a dynamic memory allocator for C programs. It\'s implemented using first-fit explicit free list approach.',
+        "A personal implementation of a dynamic memory allocator for C programs. It's implemented using first-fit explicit free list approach.",
         '/images/malloc.png',
         ['C']
     ),
 ];
-

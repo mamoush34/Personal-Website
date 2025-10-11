@@ -14,7 +14,14 @@ const ProjectPage: React.FC = observer(() => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const categories = ['All', 'Machine Learning', 'Web Development', 'Systems', 'Games', 'Data Analysis'];
+    const categories = [
+        'All',
+        'Machine Learning',
+        'Web Development',
+        'Systems',
+        'Games',
+        'Data Analysis',
+    ];
 
     useEffect(() => {
         setIsVisible(true);
@@ -24,10 +31,13 @@ const ProjectPage: React.FC = observer(() => {
         let filtered = projects;
 
         if (searchTerm) {
-            filtered = filtered.filter(project =>
-                project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()))
+            filtered = filtered.filter(
+                project =>
+                    project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    project.technologies.some(tech =>
+                        tech.toLowerCase().includes(searchTerm.toLowerCase())
+                    )
             );
         }
 
@@ -37,15 +47,32 @@ const ProjectPage: React.FC = observer(() => {
                     const techLower = tech.toLowerCase();
                     switch (selectedCategory) {
                         case 'Machine Learning':
-                            return techLower.includes('tensorflow') || techLower.includes('python') || techLower.includes('numpy');
+                            return (
+                                techLower.includes('tensorflow') ||
+                                techLower.includes('python') ||
+                                techLower.includes('numpy')
+                            );
                         case 'Web Development':
-                            return techLower.includes('react') || techLower.includes('javascript') || techLower.includes('typescript');
+                            return (
+                                techLower.includes('react') ||
+                                techLower.includes('javascript') ||
+                                techLower.includes('typescript')
+                            );
                         case 'Systems':
                             return techLower.includes('c') || techLower.includes('java');
                         case 'Games':
-                            return techLower.includes('java') && (project.name.toLowerCase().includes('game') || project.name.toLowerCase().includes('pacman') || project.name.toLowerCase().includes('doodle'));
+                            return (
+                                techLower.includes('java') &&
+                                (project.name.toLowerCase().includes('game') ||
+                                    project.name.toLowerCase().includes('pacman') ||
+                                    project.name.toLowerCase().includes('doodle'))
+                            );
                         case 'Data Analysis':
-                            return techLower.includes('d3') || techLower.includes('matplotlib') || techLower.includes('numpy');
+                            return (
+                                techLower.includes('d3') ||
+                                techLower.includes('matplotlib') ||
+                                techLower.includes('numpy')
+                            );
                         default:
                             return true;
                     }
@@ -101,13 +128,13 @@ const ProjectPage: React.FC = observer(() => {
                         type="text"
                         placeholder="Search projects..."
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={e => setSearchTerm(e.target.value)}
                         className="search-input"
                     />
                 </div>
 
                 <div className="category-filters">
-                    {categories.map((category) => (
+                    {categories.map(category => (
                         <button
                             key={category}
                             className={`category-filter ${selectedCategory === category ? 'active' : ''}`}

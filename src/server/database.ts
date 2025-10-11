@@ -1,8 +1,7 @@
-import { MongoClient, Collection, Db, InsertOneResult, InsertManyResult, ObjectId } from "mongodb";
+import { MongoClient, Db, ObjectId } from 'mongodb';
 
 export namespace Database {
-
-    const database_url = "mongodb://localhost:27017/";
+    const database_url = 'mongodb://localhost:27017/';
     const connection_options = {};
     let database: Db;
 
@@ -24,7 +23,7 @@ export namespace Database {
         const cursor = database.listCollections(undefined, { nameOnly: true });
         while (await cursor.hasNext()) {
             const { name, type } = (await cursor.next()) as any;
-            if (type === "collection" && name === collection) {
+            if (type === 'collection' && name === collection) {
                 return true;
             }
         }
@@ -50,5 +49,4 @@ export namespace Database {
     export async function clearCollections(...collections: string[]) {
         return Promise.all(collections.map(collection => database.dropCollection(collection)));
     }
-
 }

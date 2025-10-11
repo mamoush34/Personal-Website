@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpandAlt, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 import { Project } from '../models/project';
 import './project_box.scss';
 
@@ -46,7 +46,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = observer(({ project, onSelect }) =
                     alt={project.name}
                     loading="lazy"
                 />
-                
+
                 <motion.div
                     className="image-overlay"
                     initial={{ opacity: 0 }}
@@ -62,7 +62,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = observer(({ project, onSelect }) =
 
             <div className="project-content">
                 <h3 className="project-title">{project.name}</h3>
-                
+
                 <div className="project-technologies">
                     {project.technologies.slice(0, 3).map((tech, index) => (
                         <span key={index} className="tech-tag">
@@ -79,9 +79,9 @@ const ProjectBox: React.FC<ProjectBoxProps> = observer(({ project, onSelect }) =
                 <motion.div
                     className="project-description"
                     initial={{ opacity: 0, height: 0 }}
-                    animate={{ 
-                        opacity: isHovered ? 1 : 0, 
-                        height: isHovered ? 'auto' : 0 
+                    animate={{
+                        opacity: isHovered ? 1 : 0,
+                        height: isHovered ? 'auto' : 0,
                     }}
                     transition={{ duration: 0.3 }}
                 >
@@ -91,15 +91,15 @@ const ProjectBox: React.FC<ProjectBoxProps> = observer(({ project, onSelect }) =
                 <motion.div
                     className="project-actions"
                     initial={{ opacity: 0, y: 10 }}
-                    animate={{ 
-                        opacity: isHovered ? 1 : 0, 
-                        y: isHovered ? 0 : 10 
+                    animate={{
+                        opacity: isHovered ? 1 : 0,
+                        y: isHovered ? 0 : 10,
                     }}
                     transition={{ duration: 0.3 }}
                 >
                     <button
                         className="action-button primary"
-                        onClick={(e) => {
+                        onClick={e => {
                             e.stopPropagation();
                             onSelect();
                         }}

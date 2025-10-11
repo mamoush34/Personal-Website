@@ -74,47 +74,66 @@ const AboutPage: React.FC = observer(() => {
                     <motion.div className="intro-section" variants={itemVariants}>
                         <h1 className="page-title">About Me</h1>
                         <p className="intro-text">
-                            Hello, I'm Mohammad. I am from Istanbul, Turkey and am happiest when drinking a cup of Turkish tea and looking upon a view of the Bosporus waterfront.
+                            Hello, I'm Mohammad. I am from Istanbul, Turkey and am happiest when
+                            drinking a cup of Turkish tea and looking upon a view of the Bosporus
+                            waterfront.
                         </p>
                     </motion.div>
 
                     <motion.div className="story-section" variants={itemVariants}>
                         <h2>My Journey</h2>
                         <p>
-                            I first got into Computer Science in high school, where coding small games
-                            sparked my curiosity about how software systems work. That curiosity led me
-                            to study Computer Science at Brown University, where I built a foundation
-                            across systems programming, data visualization, web development, and applied
-                            machine learning.
+                            I first got into Computer Science in high school, where coding small
+                            games sparked my curiosity about how software systems work. That
+                            curiosity led me to study Computer Science at Brown University, where I
+                            built a foundation across systems programming, data visualization, web
+                            development, and applied machine learning.
                             <br />
-                            Some of my favorite projects included systems design in C, 2D game development
-                            in Java, interactive data representation with D3, and full-stack web
-                            development using React and Node. I also explored Computer Vision and Deep
-                            Learning with TensorFlow, which shaped my long-term interest in intelligent
-                            systems.
+                            Some of my favorite projects included systems design in C, 2D game
+                            development in Java, interactive data representation with D3, and
+                            full-stack web development using React and Node. I also explored
+                            Computer Vision and Deep Learning with TensorFlow, which shaped my
+                            long-term interest in intelligent systems.
                         </p>
                         <p>
-                            I'm currently a Software Engineer at Meta, working on large-scale Recommendation and Ranking Systems for IG Feed Ranking.
-                            My focus areas include feature authoring, contextual re-ranking, diversity optimization, and infrastructure efficiency.
-                            I design and analyze A/B experiments to evaluate new product ideas and algorithmic improvements, driving measurable gains in user engagement and system performance.
+                            I'm currently a Software Engineer at Meta, working on large-scale
+                            Recommendation and Ranking Systems for IG Feed Ranking. My focus areas
+                            include feature authoring, contextual re-ranking, diversity
+                            optimization, and infrastructure efficiency. I design and analyze A/B
+                            experiments to evaluate new product ideas and algorithmic improvements,
+                            driving measurable gains in user engagement and system performance.
                         </p>
                         <p>
-                            I'm passionate about the technical and practical challenges of building scalable, AI-driven systems—from feature design and model evaluation to serving efficiency and real-world impact.
-                            I aim to keep growing as an engineer specializing in machine learning systems and recommender architectures that make intelligent, data-driven experiences more effective and accessible.
+                            I'm passionate about the technical and practical challenges of building
+                            scalable, AI-driven systems—from feature design and model evaluation to
+                            serving efficiency and real-world impact. I aim to keep growing as an
+                            engineer specializing in machine learning systems and recommender
+                            architectures that make intelligent, data-driven experiences more
+                            effective and accessible.
                         </p>
                     </motion.div>
 
                     <motion.div className="future-section" variants={itemVariants}>
                         <h2>Looking Forward</h2>
                         <p>
-                            I'm looking forward to continuing my journey in AI and large-scale recommendation systems, with a focus on improving personalization, ranking efficiency, and model interpretability.
-                            I'm particularly interested in how advances in machine learning infrastructure and experimentation platforms can accelerate innovation in recommender systems.
+                            I'm looking forward to continuing my journey in AI and large-scale
+                            recommendation systems, with a focus on improving personalization,
+                            ranking efficiency, and model interpretability. I'm particularly
+                            interested in how advances in machine learning infrastructure and
+                            experimentation platforms can accelerate innovation in recommender
+                            systems.
                         </p>
                         <p>
-                            I'm also fascinated by the intersection of technology, data, and business, and how engineering decisions translate into measurable product outcomes. My long-term goal is to build AI systems that are not only technically sophisticated but also enhance real-world experiences for millions of users.
+                            I'm also fascinated by the intersection of technology, data, and
+                            business, and how engineering decisions translate into measurable
+                            product outcomes. My long-term goal is to build AI systems that are not
+                            only technically sophisticated but also enhance real-world experiences
+                            for millions of users.
                         </p>
                         <p>
-                            Outside of work, I stay active through basketball and gym sessions, love watching NBA and soccer, and have a well-documented weakness for specialty desserts.
+                            Outside of work, I stay active through basketball and gym sessions, love
+                            watching NBA and soccer, and have a well-documented weakness for
+                            specialty desserts.
                         </p>
                     </motion.div>
 

@@ -29,7 +29,7 @@ const TopBar: React.FC = observer(() => {
             </div>
 
             <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-                {navItems.map((item) => (
+                {navItems.map(item => (
                     <Link
                         key={item.id}
                         to={item.path}

@@ -14,7 +14,8 @@
         "build:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 webpack --mode development",
         "lint": "eslint src --ext .ts,.tsx",
         "lint:fix": "eslint src --ext .ts,.tsx --fix",
-        "format": "prettier --write \"src/**/*.{ts,tsx,scss,css}\""
+        "format": "prettier --write \"src/**/*.{ts,tsx,scss,css}\"",
+        "precommit": "npm run lint:fix && npm run format"
     },
     "repository": {
         "type": "git",

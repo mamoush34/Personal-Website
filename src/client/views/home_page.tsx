@@ -81,7 +81,7 @@ const HomePage: React.FC = observer(() => {
             >
                 Mohammad Amoush
             </motion.div>
-            
+
             <motion.div
                 className="subtitle"
                 variants={subtitleVariants}
@@ -101,8 +101,8 @@ const HomePage: React.FC = observer(() => {
                 transition={{ delay: 1.2, duration: 0.6 }}
             >
                 <p>
-                    Welcome to my digital space. I'm passionate about technology, economics, 
-                    and solving complex problems through innovative solutions.
+                    Welcome to my digital space. I'm passionate about technology, economics, and
+                    solving complex problems through innovative solutions.
                 </p>
             </motion.div>
 

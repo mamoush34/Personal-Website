@@ -27,4 +27,3 @@ export class UIStore {
         this.isLoading = loading;
     };
 }
-

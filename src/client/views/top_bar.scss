@@ -67,7 +67,7 @@
         &.active {
             background-color: var(--accent-color);
             color: white;
-            
+
             &::after {
                 content: '';
                 position: absolute;
@@ -167,7 +167,7 @@
             text-align: center;
             padding: 1rem;
             border-radius: var(--border-radius);
-            
+
             &.active::after {
                 display: none;
             }
