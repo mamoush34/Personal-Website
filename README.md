@@ -1,6 +1,6 @@
 # 🚀 Personal Website - Mohammad Amoush
 
-Modern personal portfolio website built with React 18, TypeScript 5, and Framer Motion.
+Personal portfolio website built with React 18, TypeScript 5, and Framer Motion.
 
 ## 📋 Tech Stack
 
