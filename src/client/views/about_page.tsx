@@ -6,6 +6,14 @@ import './about_page.scss';
 const AboutPage: React.FC = observer(() => {
     const [isVisible, setIsVisible] = useState(false);
 
+    // Obfuscated email (base64 encoded)
+    const obfuscatedEmail = 'bW9oYW1tYWRhbW91c2g5OEBnbWFpbC5jb20=';
+
+    const handleSendEmail = () => {
+        const email = atob(obfuscatedEmail);
+        window.location.href = `mailto:${email}`;
+    };
+
     useEffect(() => {
         setIsVisible(true);
     }, []);
@@ -176,9 +184,9 @@ const AboutPage: React.FC = observer(() => {
                     <motion.div className="contact-section" variants={itemVariants}>
                         <h2>Get In Touch</h2>
                         <div className="contact-info">
-                            <a href="mailto:mohammadamoush98@gmail.com" className="contact-link">
-                                mohammadamoush98@gmail.com
-                            </a>
+                            <button onClick={handleSendEmail} className="send-email-btn">
+                                Send Email
+                            </button>
                         </div>
                     </motion.div>
                 </motion.div>

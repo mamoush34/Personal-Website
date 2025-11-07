@@ -198,23 +198,29 @@
 
             .contact-info {
                 display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
+                justify-content: center;
                 margin-top: 1rem;
 
-                .contact-link {
-                    color: var(--accent-color);
-                    text-decoration: none;
-                    font-weight: 500;
-                    transition: color var(--transition-speed) ease;
-                    padding: 0.5rem;
+                .send-email-btn {
+                    background: var(--accent-color);
+                    color: white;
+                    border: none;
+                    padding: 0.75rem 2rem;
                     border-radius: var(--border-radius);
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
                     transition: all var(--transition-speed) ease;
-
+                    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+                    
                     &:hover {
-                        background: rgba(0, 123, 255, 0.1);
-                        color: #0056b3;
-                        transform: translateX(5px);
+                        background: #0056b3;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
                     }
                 }
             }
